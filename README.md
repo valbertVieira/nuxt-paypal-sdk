@@ -1,4 +1,4 @@
-# Paypal Nuxt
+# Nuxt PayPal SDK
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -24,7 +24,7 @@ Standalone PayPal components for Nuxt applications.
 Install the module to your Nuxt application with one command:
 
 ```bash
-npx nuxt module add paypal-nuxt
+npx nuxt module add nuxt-paypal-sdk
 ```
 
 Then configure your client ID:
@@ -32,7 +32,7 @@ Then configure your client ID:
 ```ts
 // nuxt.config.ts
 export default defineNuxtConfig({
-  modules: ['paypal-nuxt'],
+  modules: ['nuxt-paypal-sdk'],
   paypal: {
     clientId: process.env.PAYPAL_CLIENT_ID,
   },
@@ -226,14 +226,14 @@ Each namespace is isolated — separate `<script>` tag, separate `window[namespa
 
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/paypal-nuxt/latest.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-version-href]: https://npmjs.com/package/paypal-nuxt
+[npm-version-src]: https://img.shields.io/npm/v/nuxt-paypal-sdk/latest.svg?style=flat&colorA=020420&colorB=00DC82
+[npm-version-href]: https://npmjs.com/package/nuxt-paypal-sdk
 
-[npm-downloads-src]: https://img.shields.io/npm/dm/paypal-nuxt.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-downloads-href]: https://npm.chart.dev/paypal-nuxt
+[npm-downloads-src]: https://img.shields.io/npm/dm/nuxt-paypal-sdk.svg?style=flat&colorA=020420&colorB=00DC82
+[npm-downloads-href]: https://npm.chart.dev/nuxt-paypal-sdk
 
-[license-src]: https://img.shields.io/npm/l/paypal-nuxt.svg?style=flat&colorA=020420&colorB=00DC82
-[license-href]: https://npmjs.com/package/paypal-nuxt
+[license-src]: https://img.shields.io/npm/l/nuxt-paypal-sdk.svg?style=flat&colorA=020420&colorB=00DC82
+[license-href]: https://npmjs.com/package/nuxt-paypal-sdk
 
 [nuxt-src]: https://img.shields.io/badge/Nuxt-020420?logo=nuxt
 [nuxt-href]: https://nuxt.com

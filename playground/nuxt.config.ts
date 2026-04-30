@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  modules: ['paypal-nuxt'],
+  modules: ['nuxt-paypal-sdk'],
   devtools: { enabled: true },
   compatibilityDate: 'latest',
   paypal: {

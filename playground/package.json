@@ -8,7 +8,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "paypal-nuxt": "latest",
+    "nuxt-paypal-sdk": "latest",
     "nuxt": "^4.4.2"
   }
 }

@@ -1,23 +1,14 @@
 {
-  "name": "paypal-nuxt",
+  "name": "nuxt-paypal-sdk",
   "version": "1.0.0",
   "description": "Standalone Paypal components for Nuxt applications.",
-  "repository": "ValbertVieira/paypal-nuxt",
+  "repository": "valbertvieira/nuxt-paypal-sdk",
   "license": "MIT",
   "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/types.d.mts",
-      "import": "./dist/module.mjs"
-    }
-  },
   "main": "./dist/module.mjs",
-  "typesVersions": {
-    "*": {
-      ".": [
-        "./dist/types.d.mts"
-      ]
-    }
+  "types": "./dist/types.d.mts",
+  "exports": {
+    ".": "./dist/module.mjs"
   },
   "files": [
     "dist"
