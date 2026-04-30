@@ -43,21 +43,15 @@ Use the components anywhere in your app — auto-imported, no manual import need
 
 ```vue
 <script setup lang="ts">
-import type { PayPalButtonCreateOrder, PayPalButtonOnApprove } from '@paypal/paypal-js'
+import type { PayPalButtonCreateOrder } from '@paypal/paypal-js'
 
-const createOrder: PayPalButtonCreateOrder = (_, actions) => {
-  return actions.order.create({
-    purchase_units: [{ amount: { value: '10.00', currency_code: 'USD' } }],
-  })
-}
-
-const onApprove: PayPalButtonOnApprove = async (_, actions) => {
-  await actions.order.capture()
-}
+const createOrder: PayPalButtonCreateOrder = (_, actions) => actions.order.create({
+  purchase_units: [{ amount: { value: '10.00' } }],
+})
 </script>
 
 <template>
-  <PaypalButton :create-order="createOrder" :on-approve="onApprove" />
+  <PaypalButton :create-order="createOrder" />
 </template>
 ```
 
