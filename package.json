@@ -1,8 +1,8 @@
 {
   "name": "paypal-nuxt",
   "version": "1.0.0",
-  "description": "Easy integrate Paypal components in your nuxt applications.",
-  "repository": "your-org/my-module",
+  "description": "Standalone Paypal components for Nuxt applications.",
+  "repository": "ValbertVieira/paypal-nuxt",
   "license": "MIT",
   "type": "module",
   "exports": {

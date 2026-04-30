@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   compatibilityDate: 'latest',
   paypal: {
+    components: ['buttons', 'marks', 'messages'],
     clientId: 'REDACTED',
   },
 })

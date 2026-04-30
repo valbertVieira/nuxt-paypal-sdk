@@ -2,18 +2,11 @@ import { defineNuxtModule, addPlugin, addImportsDir, addComponent, createResolve
 import { defu } from 'defu'
 import type { PayPalScriptOptions } from '@paypal/paypal-js'
 
-export interface ModuleOptions extends PayPalScriptOptions {
-  clientSecret?: string
-}
+export interface ModuleOptions extends PayPalScriptOptions {}
 
 declare module '@nuxt/schema' {
   interface PublicRuntimeConfig {
     paypal: PayPalScriptOptions
-  }
-  interface RuntimeConfig {
-    paypal: {
-      clientSecret: string
-    }
   }
 }
 
@@ -28,16 +21,9 @@ export default defineNuxtModule<ModuleOptions>({
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
 
-    const { clientSecret, ...scriptOptions } = options
-
     nuxt.options.runtimeConfig.public.paypal = defu(
       nuxt.options.runtimeConfig.public.paypal,
-      scriptOptions,
-    )
-
-    nuxt.options.runtimeConfig.paypal = defu(
-      nuxt.options.runtimeConfig.paypal,
-      { clientSecret: clientSecret ?? '' },
+      options,
     )
 
     addPlugin(resolver.resolve('./runtime/plugin'))
@@ -45,6 +31,14 @@ export default defineNuxtModule<ModuleOptions>({
     addComponent({
       name: 'PaypalButton',
       filePath: resolver.resolve('./runtime/components/PaypalButton.vue'),
+    })
+    addComponent({
+      name: 'PaypalMarks',
+      filePath: resolver.resolve('./runtime/components/PaypalMarks.vue'),
+    })
+    addComponent({
+      name: 'PaypalMessages',
+      filePath: resolver.resolve('./runtime/components/PaypalMessages.vue'),
     })
   },
 })

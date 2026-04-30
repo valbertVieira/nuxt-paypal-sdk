@@ -25,5 +25,9 @@ usePaypal({
       :create-order="createOrder"
       funding-source="card"
     />
+
+    <PaypalMarks />
+
+    <PaypalMessages />
   </div>
 </template>

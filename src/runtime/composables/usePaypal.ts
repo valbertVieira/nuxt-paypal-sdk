@@ -1,4 +1,4 @@
-import type { PayPalButtonsComponentOptions, PayPalNamespace, PayPalScriptOptions } from '@paypal/paypal-js'
+import type { FUNDING_SOURCE, PayPalButtonsComponentOptions, PayPalMarksComponentOptions, PayPalMessagesComponentOptions, PayPalNamespace, PayPalScriptOptions } from '@paypal/paypal-js'
 import { loadScript } from '@paypal/paypal-js'
 import { computed, useRuntimeConfig, useState } from '#imports'
 
@@ -51,10 +51,49 @@ export function usePaypal(options: UsePaypalOptions = {}) {
     }
   }
 
+  async function renderMark(target: string | HTMLElement, markOptions?: PayPalMarksComponentOptions) {
+    if (!paypal.value || !paypal.value.Marks) {
+      return
+    }
+
+    try {
+      const mark = paypal.value.Marks({ ...(markOptions ?? {}) })
+
+      if (mark.isEligible()) {
+        await mark.render(target)
+      }
+    }
+    catch (error) {
+      console.error('failed to render the PayPal Marks', error)
+    }
+  }
+
+  async function renderMessage(target: string | HTMLElement, messageOptions?: PayPalMessagesComponentOptions) {
+    if (!paypal.value || !paypal.value.Messages) {
+      return
+    }
+
+    try {
+      const message = paypal.value.Messages({ ...(messageOptions ?? {}) })
+      await message.render(target)
+    }
+    catch (error) {
+      console.error('failed to render the PayPal Messages', error)
+    }
+  }
+
+  function getFundingSources(): FUNDING_SOURCE[] {
+    return paypal.value?.getFundingSources?.() ?? []
+  }
+
+  function isFundingEligible(source: FUNDING_SOURCE): boolean {
+    return paypal.value?.isFundingEligible?.(source) ?? false
+  }
+
   if (import.meta.client && (hasOverrides || !loadAttempted.value)) {
     console.log('loading PayPal JS SDK with options:', merged)
     loadSdk()
   }
 
-  return { renderButton, isReady }
+  return { renderButton, renderMark, renderMessage, getFundingSources, isFundingEligible, isReady }
 }
