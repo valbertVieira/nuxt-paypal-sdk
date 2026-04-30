@@ -34,7 +34,7 @@ Then configure your client ID:
 export default defineNuxtConfig({
   modules: ['nuxt-paypal-sdk'],
   paypal: {
-    clientId: process.env.PAYPAL_CLIENT_ID,
+    clientId: '', // set via NUXT_PUBLIC_PAYPAL_CLIENT_ID env var
   },
 })
 ```
@@ -43,11 +43,13 @@ Use the components anywhere in your app — auto-imported, no manual import need
 
 ```vue
 <script setup lang="ts">
-import type { PayPalButtonCreateOrder } from '@paypal/paypal-js'
+import type { CreateOrderActions, CreateOrderData } from '@paypal/paypal-js'
 
-const createOrder: PayPalButtonCreateOrder = (_, actions) => actions.order.create({
-  purchase_units: [{ amount: { value: '10.00' } }],
-})
+function createOrder(_: CreateOrderData, actions: CreateOrderActions) {
+  return actions.order.create({
+    purchase_units: [{ amount: { value: '10.00' } }],
+  })
+}
 </script>
 
 <template>
