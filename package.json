@@ -2,6 +2,17 @@
   "name": "nuxt-paypal-sdk",
   "version": "1.0.0",
   "description": "Standalone Paypal components for Nuxt applications.",
+  "keywords": [
+    "nuxt",
+    "nuxt-module",
+    "paypal",
+    "venmo",
+    "checkout",
+    "payment",
+    "subscription",
+    "card-fields",
+    "vue"
+  ],
   "repository": "valbertvieira/nuxt-paypal-sdk",
   "license": "MIT",
   "type": "module",
