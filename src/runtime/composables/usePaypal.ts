@@ -91,7 +91,6 @@ export function usePaypal(options: UsePaypalOptions = {}) {
   }
 
   if (import.meta.client && (hasOverrides || !loadAttempted.value)) {
-    console.log('loading PayPal JS SDK with options:', merged)
     loadSdk()
   }
 

@@ -12,7 +12,7 @@ declare module '@nuxt/schema' {
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'paypal-nuxt',
+    name: 'nuxt-paypal-sdk',
     configKey: 'paypal',
   },
   defaults: {
