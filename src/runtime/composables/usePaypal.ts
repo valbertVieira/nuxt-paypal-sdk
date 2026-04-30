@@ -43,7 +43,7 @@ export function usePaypal(options: UsePaypalOptions = {}) {
       const button = paypal.value.Buttons({ ...(buttonOptions ?? {}) })
 
       if (button.isEligible()) {
-        button.render(target)
+        await button.render(target)
       }
     }
     catch (error) {
