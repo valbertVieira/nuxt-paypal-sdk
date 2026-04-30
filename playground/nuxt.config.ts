@@ -4,6 +4,6 @@ export default defineNuxtConfig({
   compatibilityDate: 'latest',
   paypal: {
     components: ['buttons', 'marks', 'messages'],
-    clientId: 'REDACTED',
+    clientId: '',
   },
 })
