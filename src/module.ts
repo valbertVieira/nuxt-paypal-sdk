@@ -2,7 +2,7 @@ import { defineNuxtModule, addPlugin, addImportsDir, addComponent, createResolve
 import { defu } from 'defu'
 import type { PayPalScriptOptions } from '@paypal/paypal-js'
 
-export interface ModuleOptions extends PayPalScriptOptions {}
+export type ModuleOptions = PayPalScriptOptions
 
 declare module '@nuxt/schema' {
   interface PublicRuntimeConfig {
