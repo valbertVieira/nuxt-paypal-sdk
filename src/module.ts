@@ -40,5 +40,25 @@ export default defineNuxtModule<ModuleOptions>({
       name: 'PaypalMessages',
       filePath: resolver.resolve('./runtime/components/PaypalMessages.vue'),
     })
+    addComponent({
+      name: 'PaypalCardFields',
+      filePath: resolver.resolve('./runtime/components/PaypalCardFields.vue'),
+    })
+    addComponent({
+      name: 'PaypalCardNumber',
+      filePath: resolver.resolve('./runtime/components/PaypalCardNumber.vue'),
+    })
+    addComponent({
+      name: 'PaypalCardExpiry',
+      filePath: resolver.resolve('./runtime/components/PaypalCardExpiry.vue'),
+    })
+    addComponent({
+      name: 'PaypalCardCvv',
+      filePath: resolver.resolve('./runtime/components/PaypalCardCvv.vue'),
+    })
+    addComponent({
+      name: 'PaypalCardName',
+      filePath: resolver.resolve('./runtime/components/PaypalCardName.vue'),
+    })
   },
 })

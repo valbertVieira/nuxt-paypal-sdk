@@ -9,6 +9,8 @@ Standalone PayPal components for Nuxt applications.
 
 > **Scope:** this module wraps the PayPal **client-side JavaScript SDK** ([@paypal/paypal-js](https://github.com/paypal/paypal-js)) — buttons, marks, messages, funding eligibility. Server-side integration with the PayPal REST API (order capture, subscriptions management, webhooks) is **out of scope** and remains the consumer's responsibility.
 
+![Components](https://raw.githubusercontent.com/valbertVieira/nuxt-paypal-sdk/main/.github/assets/components.png)
+
 - [Release Notes](/CHANGELOG.md)
 
 ## Features
