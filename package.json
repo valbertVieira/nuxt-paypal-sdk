@@ -1,6 +1,6 @@
 {
   "name": "nuxt-paypal-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Standalone Paypal components for Nuxt applications.",
   "keywords": [
     "nuxt",
