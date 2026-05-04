@@ -1,4 +1,4 @@
-import type { FUNDING_SOURCE, PayPalButtonsComponentOptions, PayPalMarksComponentOptions, PayPalMessagesComponentOptions, PayPalNamespace, PayPalScriptOptions } from '@paypal/paypal-js'
+import type { FUNDING_SOURCE, PayPalButtonsComponentOptions, PayPalCardFieldsComponentOptions, PayPalMarksComponentOptions, PayPalMessagesComponentOptions, PayPalNamespace, PayPalScriptOptions } from '@paypal/paypal-js'
 import { loadScript } from '@paypal/paypal-js'
 import { computed, useRuntimeConfig, useState } from '#imports'
 
@@ -82,6 +82,22 @@ export function usePaypal(options: UsePaypalOptions = {}) {
     }
   }
 
+  function createCardFields(cardFieldsOptions: PayPalCardFieldsComponentOptions) {
+    if (!paypal.value || !paypal.value.CardFields) {
+      return null
+    }
+
+    try {
+      const cardFields = paypal.value.CardFields({ ...cardFieldsOptions })
+      if (!cardFields.isEligible()) return null
+      return cardFields
+    }
+    catch (error) {
+      console.error('failed to create the PayPal CardFields', error)
+      return null
+    }
+  }
+
   function getFundingSources(): FUNDING_SOURCE[] {
     return paypal.value?.getFundingSources?.() ?? []
   }
@@ -94,5 +110,5 @@ export function usePaypal(options: UsePaypalOptions = {}) {
     loadSdk()
   }
 
-  return { renderButton, renderMark, renderMessage, getFundingSources, isFundingEligible, isReady }
+  return { renderButton, renderMark, renderMessage, createCardFields, getFundingSources, isFundingEligible, isReady }
 }
